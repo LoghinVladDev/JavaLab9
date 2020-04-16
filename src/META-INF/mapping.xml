@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="ro.uaic.info.entity.Albums">
+        <table name="albums" schema="music_albums" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="ID"/>
+            </id>
+            <basic name="name">
+                <column name="name"/>
+            </basic>
+            <basic name="artistId">
+                <column name="artist_id" insertable="false" updatable="false"/>
+            </basic>
+            <basic name="releaseYear">
+                <column name="release_year"/>
+            </basic>
+            <many-to-one name="artistsByArtistId" optional="true" target-entity="ro.uaic.info.entity.Artists">
+                <join-column name="artist_id" referenced-column-name="ID"/>
+            </many-to-one>
+            <one-to-many name="chartPositionsById" mapped-by="albumsByAlbumId"
+                         target-entity="ro.uaic.info.entity.ChartPositions"/>
+        </attributes>
+    </entity>
+    <entity class="ro.uaic.info.entity.Artists">
+        <table name="artists" schema="music_albums" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="ID"/>
+            </id>
+            <basic name="name">
+                <column name="name"/>
+            </basic>
+            <basic name="country">
+                <column name="country"/>
+            </basic>
+            <one-to-many name="albumsById" mapped-by="artistsByArtistId" target-entity="ro.uaic.info.entity.Albums"/>
+        </attributes>
+    </entity>
+    <entity class="ro.uaic.info.entity.ChartPositions">
+        <table name="chart_positions" schema="music_albums" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="ID"/>
+            </id>
+            <basic name="chartId">
+                <column name="chart_ID" insertable="false" updatable="false"/>
+            </basic>
+            <basic name="albumId">
+                <column name="album_ID" insertable="false" updatable="false"/>
+            </basic>
+            <basic name="position">
+                <column name="position"/>
+            </basic>
+            <many-to-one name="chartsByChartId" optional="true" target-entity="ro.uaic.info.entity.Charts">
+                <join-column name="chart_ID" referenced-column-name="ID"/>
+            </many-to-one>
+            <many-to-one name="albumsByAlbumId" optional="true" target-entity="ro.uaic.info.entity.Albums">
+                <join-column name="album_ID" referenced-column-name="ID"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+    <entity class="ro.uaic.info.entity.Charts">
+        <table name="charts" schema="music_albums" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="ID"/>
+            </id>
+            <basic name="name">
+                <column name="name"/>
+            </basic>
+            <one-to-many name="chartPositionsById" mapped-by="chartsByChartId"
+                         target-entity="ro.uaic.info.entity.ChartPositions"/>
+        </attributes>
+    </entity>
+</entity-mappings>

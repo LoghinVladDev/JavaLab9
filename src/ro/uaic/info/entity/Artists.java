@@ -1,4 +1,4 @@
-package ro.uaic.info.model;
+package ro.uaic.info.entity;
 
 import javax.persistence.*;
 import java.util.Collection;

@@ -6,9 +6,11 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="NewPersistenceUnit" />
+          <factory-entry name="MusicAlbumsPU" value="a5e055e5-cf35-47e8-a95b-ccc11ab56281" />
         </datasource-mapping>
-        <naming-strategy-map />
+        <naming-strategy-map>
+          <unit-entry name="MusicAlbumsPU" />
+        </naming-strategy-map>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
       </configuration>
     </facet>
@@ -21,5 +23,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="JPA 2.0-2.0" level="project" />
+    <orderEntry type="library" name="mysql:mysql-connector-java:8.0.19" level="project" />
+    <orderEntry type="library" name="org.hibernate:hibernate-entitymanager:4.1.5.Final.jar" level="project" />
   </component>
 </module>
