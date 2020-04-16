@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="MusicAlbumsPU">
+        <class>ro.uaic.info.model.Albums</class>
+        <class>ro.uaic.info.model.Artists</class>
+        <class>ro.uaic.info.model.ChartPositions</class>
+        <class>ro.uaic.info.model.Charts</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3307/music_albums"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+        </properties>
+    </persistence-unit>
+</persistence>
