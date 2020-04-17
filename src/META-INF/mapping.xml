@@ -2,6 +2,15 @@
 <entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
         version="2.0">
 
+
+    <named-query name="findArtistsByName">
+        <query> <![CDATA[from Artists where name = :artistName]]> </query>
+    </named-query>
+    
+    <named-query name="findArtistsByNameRegex">
+        <query> <![CDATA[from Artists where name like ?1 ]]> </query>
+    </named-query>
+
     <entity class="ro.uaic.info.entity.Albums">
         <table name="albums" schema="music_albums" catalog=""/>
         <attributes>
@@ -75,4 +84,5 @@
                          target-entity="ro.uaic.info.entity.ChartPositions"/>
         </attributes>
     </entity>
+
 </entity-mappings>

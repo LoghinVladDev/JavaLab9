@@ -11,6 +11,15 @@ public class Artists {
     private String country;
     private Collection<Albums> albumsById;
 
+    public String toString(){
+        return "Artists with id = " +
+                this.id +
+                " name = " +
+                this.name +
+                " country = " +
+                this.country;
+    }
+
     @Id
     @Column(name = "ID")
     public int getId() {
