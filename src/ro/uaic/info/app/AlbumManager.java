@@ -21,6 +21,12 @@ public class AlbumManager {
 
         System.out.println(ArtistRepository.findByNamePattern("%a"));
 
+        System.out.println(AlbumRepository.findByID(6175));
+
+        System.out.println(AlbumRepository.findByName("Shall not Perish Avery, Stage And Screen"));
+
+        System.out.println(AlbumRepository.findByNamePattern("%a%"));
+
         System.out.println(AlbumRepository.findByArtists(
                 ArtistRepository.findByID(5013)
         ));
