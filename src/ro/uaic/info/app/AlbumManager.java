@@ -21,6 +21,10 @@ public class AlbumManager {
 
         System.out.println(ArtistRepository.findByNamePattern("%a"));
 
+        System.out.println(AlbumRepository.findByArtists(
+                ArtistRepository.findByID(5013)
+        ));
+
         PersistenceUtil.getInstance().getEntityManagerFactory().close();
     }
 }

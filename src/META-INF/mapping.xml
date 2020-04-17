@@ -11,6 +11,18 @@
         <query> <![CDATA[from Artists where name like ?1 ]]> </query>
     </named-query>
 
+    <named-query name="findAlbumsByName">
+        <query> <![CDATA[from Albums where name = :albumName]]> </query>
+    </named-query>
+
+    <named-query name="findAlbumsByNameRegex">
+        <query> <![CDATA[from Albums where name like ?1]]> </query>
+    </named-query>
+
+    <named-query name="findAlbumsByArtist">
+        <query> <![CDATA[from Albums where artistId = :artistID ]]> </query>
+    </named-query>
+
     <entity class="ro.uaic.info.entity.Albums">
         <table name="albums" schema="music_albums" catalog=""/>
         <attributes>

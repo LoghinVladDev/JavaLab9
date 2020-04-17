@@ -13,6 +13,17 @@ public class Albums {
     private Artists artistsByArtistId;
     private Collection<ChartPositions> chartPositionsById;
 
+    public String toString(){
+        return "Album id = " +
+                this.id +
+                " name = " +
+                this.name +
+                " artist_id = " +
+                this.artistId +
+                " release_year = " +
+                this.releaseYear;
+    }
+
     @Id
     @Column(name = "ID")
     public int getId() {
